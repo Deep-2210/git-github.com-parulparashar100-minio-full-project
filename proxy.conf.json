@@ -1,7 +1,16 @@
 {
     "/api": {
-        "targe": "http://localhost:8082/",
+        "targe": "http://localhost:8082/users",
         "secure": false,
         "logLevel": "debug"
-    }
+    },
+
+    "cors": [
+        {
+          "origin": ["*"],
+          "method": ["GET"],
+          "responseHeader": ["Content-Type"],
+          "maxAgeSeconds": 3600
+        }
+      ]
 }

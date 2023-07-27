@@ -13,7 +13,7 @@ export class DownloadComponent {
   constructor(private minioService: MinioServiceService) { }
 
   upObj: { [key: string]: FormControl } = {
-    fileName: new FormControl(''),
+    fileName: new FormControl('', [Validators.required]),
     bucketName: new FormControl('', [Validators.required]),
     secretKey: new FormControl('', [Validators.required]),
     privateKey: new FormControl('', [Validators.required]),
@@ -28,7 +28,9 @@ export class DownloadComponent {
       privateKey: this.upObj['privateKey'].value,
       uuid: this.upObj['uuid'].value,
     }
-    this.minioService.downloadFile(doObjFinal['fileName'], doObjFinal['bucketName'], doObjFinal['secretKey'], doObjFinal['privateKey'], doObjFinal['uuid']).subscribe((data) => { console.log(data) })
+    
+    this.minioService.downloadFile(doObjFinal).subscribe((data) => { 
+      console.log(data) })
   }
 
   saveFile(blob: Blob): void {
