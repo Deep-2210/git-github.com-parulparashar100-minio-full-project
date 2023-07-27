@@ -1,0 +1,39 @@
+<div>
+  
+    <!-- <input type="file" required name="fileUpload"><br> -->
+    <input type="file" multiple required name="fileUpload" class="fileInputprofile" (change)="onFileSelected($event)"><br><br>
+    
+    <mat-form-field>
+      <input matInput type="text" placeholder="Bucket" [formControl]="upObj['bucket']">
+      <mat-error *ngIf="upObj['bucket'].hasError('required')">Must enter the bucket</mat-error>
+    </mat-form-field><br><br>
+
+    <mat-form-field>
+      <input matInput type="password" placeholder="Secret Key" [formControl]="upObj['secretKey']">
+      <mat-error *ngIf="upObj['secretKey'].hasError('required')">Must enter the secret key</mat-error>
+    </mat-form-field><br><br>
+
+    <mat-form-field>
+      <input matInput type="password" placeholder="Private Key" [formControl]="upObj['privateKey']">
+      <mat-error *ngIf="upObj['privateKey'].hasError('required')">Must enter the private key</mat-error>
+    </mat-form-field><br><br>
+
+    Want to upload metadata &nbsp;
+    <select [(ngModel)] = metaActive name="metaActive">
+      <option  value="no">No</option>
+      <option  value="yes">Yes</option>
+    </select><br>
+
+    <div *ngIf="metaActive === 'yes'">
+      <div *ngFor="let metaField of metaFieldValues; let i=index">
+        <input [(ngModel)]="metaField.name" placeholder="Name {{i+1}}" name="name" #name="ngModel"/>
+        <input [(ngModel)]="metaField.value" placeholder="Value {{i+1}}" value="value" #value="ngModel"  />
+      </div>
+      <button (click)="addMeta()"> + </button><br>
+    </div>
+
+    <button (click)="upload()">
+      Upload
+    </button>
+
+</div>

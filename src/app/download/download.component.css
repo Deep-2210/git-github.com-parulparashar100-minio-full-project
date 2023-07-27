@@ -1,0 +1,39 @@
+/* Assuming you are using Angular Material's prebuilt theme, you don't need to style the form fields themselves */
+
+/* Style for the mat-error messages */
+.mat-error {
+    color: #e53935; /* Red color for error messages */
+    font-size: 12px; /* Adjust the font size as needed */
+    margin-top: 5px; /* Add some space between the input and the error message */
+  }
+  
+  /* Optional: You can add styles to the download button */
+  button {
+    padding: 8px 16px;
+    background-color: #1976d2; /* Blue color for the button background */
+    color: #fff; /* White color for the button text */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+  
+  button:hover {
+    background-color: #1565c0; /* Darker blue on hover */
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Optional: Set the height to fill the viewport vertically */
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  
