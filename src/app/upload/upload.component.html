@@ -9,12 +9,12 @@
     </mat-form-field><br><br>
 
     <mat-form-field>
-      <input matInput type="password" placeholder="Secret Key" [formControl]="upObj['secretKey']">
+      <input matInput type="password" required placeholder="Secret Key" [formControl]="upObj['secretKey']">
       <mat-error *ngIf="upObj['secretKey'].hasError('required')">Must enter the secret key</mat-error>
     </mat-form-field><br><br>
 
     <mat-form-field>
-      <input matInput type="password" placeholder="Private Key" [formControl]="upObj['privateKey']">
+      <input matInput type="password" required placeholder="Private Key" [formControl]="upObj['privateKey']">
       <mat-error *ngIf="upObj['privateKey'].hasError('required')">Must enter the private key</mat-error>
     </mat-form-field><br><br>
 

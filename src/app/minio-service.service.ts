@@ -8,27 +8,29 @@ import { Observable } from 'rxjs';
 
 export class MinioServiceService {
 
-  private baseUrl1 = 'http://localhost:8082/upload';
-  private baseUrl2 = 'http://localhost:8082/download';
+  private baseUrl1 = 'http://localhost:8082/users/upload';
+  private baseUrl2 = 'http://localhost:8082/users/download';
 
   constructor(private http: HttpClient) { }
 
   upTrail(data1:any){
-    return this.http.post(this.baseUrl1,data1);
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(data1);
+
+    return this.http.post(this.baseUrl1,body,{'headers':headers});
+
+    // return this.http.post(this.baseUrl1,data1);
   }
 
   // downloadFile(data2:any){
   //   return this.http.post(this.baseUrl2, data2);
   // }
 
-  downloadFile(fileName:string, bucketName: string, secretKey: string, privateKey: string, uuid: string): Observable<any> {
-    const params = new HttpParams()
-      .set('secretKey', secretKey)
-      .set('privateKey', privateKey)
-      .set('bucketName', bucketName)
-      .set('fileName', fileName);
+  downloadFile(data2:any){
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(data2);
 
-    return this.http.post<any>(this.baseUrl2, { params });
+    return this.http.post(this.baseUrl2,body,{'headers':headers});
   }
   
 }
