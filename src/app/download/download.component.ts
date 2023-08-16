@@ -56,13 +56,13 @@ export class DownloadComponent {
     return this.upObj['privateKey'].hasError('privateKey') ? 'Not a valid private key' : '';
   }
 
-  getErrorMessage_bucket() {
-    if (this.upObj['bucket'].hasError('required')) {
-      return 'You must enter bucket name';
-    }
+  // getErrorMessage_bucket() {
+  //   if (this.upObj['bucket'].hasError('required')) {
+  //     return 'You must enter bucket name';
+  //   }
 
-    return this.upObj['bucket'].hasError('bucket') ? 'Not a valid bucket' : '';
-  }
+  //   return this.upObj['bucket'].hasError('bucket') ? 'Not a valid bucket' : '';
+  // }
 
   getErrorMessage_uuid() {
     if (this.upObj['uuid'].hasError('required')) {
