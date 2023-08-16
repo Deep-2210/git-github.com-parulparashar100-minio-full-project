@@ -7,10 +7,11 @@
       <mat-error *ngIf="upObj['fileName'].hasError('required')">Must enter File Name</mat-error>
     </mat-form-field><br><br>
   
-    <mat-form-field>
+    <mat-form-field><input matInput type="text" placeholder="Bucket Name" [formControl]="upObj['bucketName']"></mat-form-field>
+    <!-- <mat-form-field>
       <input matInput type="text" placeholder="Bucket Name" [formControl]="upObj['bucketName']">
       <mat-error *ngIf="upObj['bucketName'].hasError('required')">Must enter Bucket Name</mat-error>
-    </mat-form-field><br><br>
+    </mat-form-field>--> <br><br> 
   
     <mat-form-field>
       <input matInput type="password" required placeholder="Secret key" [formControl]="upObj['secretKey']">

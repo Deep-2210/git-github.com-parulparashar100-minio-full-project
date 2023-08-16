@@ -16,6 +16,7 @@ export class MinioServiceService {
   upTrail(data1:any){
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(data1);
+    console.log(data1.metaData);
 
     return this.http.post(this.baseUrl1,body,{'headers':headers});
 
@@ -29,7 +30,7 @@ export class MinioServiceService {
   downloadFile(data2:any){
     const headers = { 'content-type': 'application/json'}  
     const body=JSON.stringify(data2);
-
+    console.log(body)
     return this.http.post(this.baseUrl2,body,{'headers':headers});
   }
   

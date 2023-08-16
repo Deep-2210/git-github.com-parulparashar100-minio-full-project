@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MinioServiceService } from '../minio-service.service';
 import { FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-upload',
@@ -16,7 +17,7 @@ export class UploadComponent {
   uploadInProgress = false;
   uploadProgress = 0;
 
-  constructor(private minioServerice: MinioServiceService, private http: HttpClient) { }
+  constructor(private minioServerice: MinioServiceService, private http: HttpClient, private toastr: ToastrService) { }
 
   onFileSelected(event: any) {
     const selectedFile = event.target.files[0]; // Get the selected file from the event
@@ -43,7 +44,9 @@ export class UploadComponent {
       };
       fileReader.readAsDataURL(file);
     } else {
-      alert('Please select a file.');
+      this.toastr.error('Please select a file.','', {timeOut:
+        2000});
+      //alert('Please select a file.');
     }
   }
   
@@ -51,6 +54,7 @@ export class UploadComponent {
   uploadWithBase64(base64String: string) {
     const upObjFinal = {
       file: base64String, // Set the file property to the base64 string
+      bucketName: this.upObj['bucket'].value,
       secretKey: this.upObj['secretKey'].value,
       privateKey: this.upObj['privateKey'].value,
       metaData: { ...this.getMetaFieldValuesObject() },
@@ -90,5 +94,16 @@ export class UploadComponent {
     }
 
     return this.upObj['privateKey'].hasError('privateKey') ? 'Not a valid private key' : '';
+  }
+
+  isUploadDisabled(): any {
+    // Check if any mandatory field is empty
+    const mandatoryFieldsEmpty = !this.upObj['file'] ||
+      this.upObj['bucket'].invalid ||
+      this.upObj['secretKey'].invalid ||
+      this.upObj['privateKey'].invalid;
+  
+    // Disable the button if any mandatory field is empty
+    return mandatoryFieldsEmpty;
   }
 }
