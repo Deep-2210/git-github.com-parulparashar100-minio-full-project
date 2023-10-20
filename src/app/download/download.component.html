@@ -3,28 +3,25 @@
     <div class="content">
 
     <mat-form-field>
-      <input matInput type="text" placeholder="File Name" [formControl]="upObj['fileName']">
+      <input matInput type="text" placeholder="File Name" [formControl]="upObj['fileName']" name="fileName">
       <mat-error *ngIf="upObj['fileName'].hasError('required')">Must enter File Name</mat-error>
     </mat-form-field><br><br>
   
-    <mat-form-field><input matInput type="text" placeholder="Bucket Name" [formControl]="upObj['bucketName']"></mat-form-field>
-    <!-- <mat-form-field>
-      <input matInput type="text" placeholder="Bucket Name" [formControl]="upObj['bucketName']">
-      <mat-error *ngIf="upObj['bucketName'].hasError('required')">Must enter Bucket Name</mat-error>
-    </mat-form-field>--> <br><br> 
-  
+    <mat-form-field><input matInput type="text" placeholder="Bucket Name" [formControl]="upObj['bucketName']" name="bucketName"></mat-form-field>
+    <br><br> 
+
     <mat-form-field>
-      <input matInput type="password" required placeholder="Secret key" [formControl]="upObj['secretKey']">
+      <input matInput type="password" required placeholder="Secret key" [formControl]="upObj['secretKey']" name="secretKey">
       <mat-error *ngIf="upObj['secretKey'].hasError('required')">Must enter Secret Key</mat-error>
     </mat-form-field><br><br>
   
     <mat-form-field>
-      <input matInput type="password" required placeholder="Private key" [formControl]="upObj['privateKey']">
+      <input matInput type="password" required placeholder="Private key" [formControl]="upObj['privateKey']" name="privateKey">
       <mat-error *ngIf="upObj['privateKey'].hasError('required')">Must enter Private Key</mat-error>
     </mat-form-field><br><br>
   
     <mat-form-field>
-      <input matInput type="text" placeholder="UUID" [formControl]="upObj['uuid']">
+      <input matInput type="text" placeholder="UUID" [formControl]="upObj['uuid']" name="uuid">
       <mat-error *ngIf="upObj['uuid'].hasError('required')">Must enter UUID</mat-error>
     </mat-form-field><br><br>
   
@@ -32,6 +29,17 @@
       Download
     </button>
 
+    
+    <!-- <mat-checkbox [(ngModel)]="selectAllFiles">Select All Files</mat-checkbox><br><br>
+
+    Use ngFor to iterate through files and display checkboxes
+    <div *ngFor="let file of files">
+      <mat-checkbox [(ngModel)]="file.selected">{{ file.fileName }}</mat-checkbox>
+    </div> -->
+
     </div>
   
   </div>
+
+
+ 

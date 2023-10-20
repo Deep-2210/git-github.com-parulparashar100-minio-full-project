@@ -12,13 +12,22 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component'
+import { AuthServiceService } from './auth-service.service';
+import { ActivatedRouteSnapshot } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     UploadComponent,
-    DownloadComponent
+    DownloadComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,8 +44,10 @@ import { ToastrModule } from 'ngx-toastr';
       preventDuplicates: true,
     }),
     BrowserAnimationsModule,
+    MatProgressBarModule,
+    MatCheckboxModule
   ],
-  providers: [],
+  providers: [AuthGuard, AuthServiceService, LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
