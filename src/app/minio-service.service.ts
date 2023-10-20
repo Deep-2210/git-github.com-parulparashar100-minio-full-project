@@ -33,5 +33,6 @@ export class MinioServiceService {
     console.log(body)
     return this.http.post(this.baseUrl2,body,{'headers':headers});
   }
+
   
 }

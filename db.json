@@ -1,0 +1,43 @@
+{
+  "signupUsers": [
+    {
+      "name": "Deepanshu",
+      "phone": "9131770985",
+      "email": "deepanshu@gmail.com",
+      "password": "Deep123",
+      "id": 1
+    },
+    {
+      "name": "Piyush",
+      "phone": "1234567890",
+      "email": "piyush@gmail.com",
+      "password": "Piyush123",
+      "id": 2
+    },
+    {
+      "name": "Devaraj",
+      "phone": "2233111340",
+      "email": "dev@gmail.com",
+      "password": "1234567890",
+      "id": 3
+    },
+    {
+      "name": "Nilesh",
+      "phone": "942512857",
+      "email": "nilesh@gmail.com",
+      "password": "nilesh123",
+      "id": 4
+    },
+    {
+      "name": "Bhavnish",
+      "phone": "2233555340",
+      "email": "bhavnish@gmail.com",
+      "password": "bhavnish",
+      "id": 5
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

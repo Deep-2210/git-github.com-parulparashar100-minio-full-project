@@ -3,6 +3,15 @@
   
     <!-- <input type="file" required name="fileUpload"><br> -->
     <input type="file" multiple required name="fileUpload" class="fileInputprofile" (change)="onFileSelected($event)"><br><br>
+
+    <!-- <ng-container *ngIf="uploadInProgress">
+      <mat-progress-bar mode="determinate" [value]="uploadProgress"></mat-progress-bar>
+    </ng-container> -->
+
+    <mat-form-field>
+      <input matInput type="text" placeholder="File Name" [formControl]="upObj['fileName']" name="fileName">
+      <mat-error *ngIf="upObj['fileName'].hasError('required')">Must enter File Name</mat-error>
+    </mat-form-field><br><br>
     
     <mat-form-field>
       <input matInput type="text" placeholder="Bucket" [formControl]="upObj['bucket']">
